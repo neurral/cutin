@@ -1,2 +1,2 @@
 # cutin
-docker containers for .net core
+docker containers
