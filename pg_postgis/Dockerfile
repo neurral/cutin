@@ -9,8 +9,9 @@ ENV PG_MAJOR=10.4 \
   POSTGRES_USER=root \
   POSTGRES_PASSWORD=cut1n_d8
 
-# TODO make seed copy optional
-#** Build: SQL file for seeding, using host file name
-ARG SQL_SEED_FILE 
-# COPY SQL_SEED_FILE /docker-entrypoint-initdb.d/
+#** Build: SQL file for seeding, using host file path name
+# SQL_SEED_FILE is optional, while seed_setup.sql is always copied
+ARG SQL_SEED_FILE
+COPY seed_setup.sql $SQL_SEED_FILE* /docker-entrypoint-initdb.d/
+
 EXPOSE 5432
