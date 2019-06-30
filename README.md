@@ -1,6 +1,6 @@
 # cutin
 
-Different docker containersand wrappers.
+Different docker containers and wrappers.
 
 ## DockerHub Builds:
 
@@ -36,7 +36,7 @@ $ git branch dockerfiles/pg_postgis
 $ git checkout dockerfiles/pg_postgis
 ```
 
-3. Create your own folder with same name. Do not mix with master or unrelated folders.
+3. Create your own folder with same name. Do not mix with root folder or other unrelated folders.
 
 ```bash
 $ mkdir pg_postgis
