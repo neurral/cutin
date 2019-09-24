@@ -29,17 +29,21 @@ Note: there are no `latest` tags used. Each branch is built on its own name.
 
 1. Let's name this stack as something short but memorable and sortable: **pg_postgis**.
 
+```bash
+$ export CUTIN_DIR=pg_postgis
+```
+
 2. Create branch:
 
 ```bash
-$ git branch dockerfiles/pg_postgis
-$ git checkout dockerfiles/pg_postgis
+$ git branch dockerfiles/$CUTIN_DIR
+$ git checkout dockerfiles/$CUTIN_DIR
 ```
 
 3. Create your own folder with same name. Do not mix with master or unrelated folders.
 
 ```bash
-$ mkdir pg_postgis
+$ mkdir $CUTIN_DIR
 ```
 
 4. In your folder, add your **Dockerfile** and changes.
@@ -48,7 +52,13 @@ $ mkdir pg_postgis
 ```bash
 # use YOUR_FOLDER_NAME with the docker tag following the naming convention below.
 
-$ docker build pg_postgis/ -t neurral/cutin:pg_postgis-10.4
+$ docker build $CUTIN_DIR/ -t neurral/cutin:$CUTIN_DIR-10.4
+# Take note of the container ID, like 'beac46c7bb36'
+
+# To also push to Github Pacakge Registry
+$ docker login docker.pkg.github.com --username neurral -p GITHUB_TOKEN
+$ docker build pg_postgis/ -t docker.pkg.github.com/neurral/cutin/$CUTIN_DIR-10.4:latest
+$ docker push docker.pkg.github.com/neurral/cutin/$CUTIN_DIR-10.4:latest
 ```
 
 6. If you want to PR this, add a git tag following the name of your branch-version and push.
