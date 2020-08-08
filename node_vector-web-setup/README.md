@@ -28,3 +28,17 @@ $ export PORT=8005 && docker run -p $PORT:$PORT -e PORT=$PORT -it neurral/vws:la
 ```
 
 You can then access your Vector Web Setup at localhost:8005.
+
+---
+
+You can host your own instance in Heroku Docker Registry. Just pull neurral/vws and docker tag to your Heroku app.
+
+```
+$ docker pull neurral/vws
+$ docker tag neurral/vws registry.heroku.com/YOUR_HEROKU_APP/web
+$ docker push registry.heroku.com/YOUR_HEROKU_APP/web
+```
+
+You may need to a release afterwards to start up: https://devcenter.heroku.com/articles/container-registry-and-runtime#releasing-an-image
+
+**Demo:** [https://neurral-vws.herokuapp.com](https://neurral-vws.herokuapp.com/)
