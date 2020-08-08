@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "export PORT=$PORT && neurral-vws serve --port $PORT </dev/null &>/dev/null &",
-    "poststart": "echo \"Server started.\" && tail -f /dev/null"
+    "poststart": "echo \"Server started.\" && tail -f /dev/null",
+    "deploy:heroku": "heroku container:push web && heroku container:release web"
   },
   "author": "",
   "license": "ISC"
