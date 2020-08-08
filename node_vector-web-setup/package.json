@@ -1,10 +1,9 @@
 {
   "name": "node_vector-web-setup",
   "version": "1.0.0",
-  "description": "``` docker pull neurral/vector-web-setup docker run -it -p 8000:8000 neurral/vector-web-setup ```",
-  "main": "index.js",
+  "description": "",
   "scripts": {
-    "start": "vector-web-setup serve </dev/null &>/dev/null &",
+    "start": "export PORT=$PORT && neurral-vws serve --port $PORT </dev/null &>/dev/null &",
     "poststart": "echo \"Server started.\" && tail -f /dev/null"
   },
   "author": "",

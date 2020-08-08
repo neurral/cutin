@@ -1,8 +1,9 @@
 FROM node:12.18-alpine3.12
 
-RUN npm i -g vector-web-setup
-RUN vector-web-setup && vector-web-setup configure
+ENV PORT=8000
+RUN npm i -g neurral-vws
+RUN neurral-vws && neurral-vws configure
 COPY package.json .
-ENTRYPOINT ["npm", "start"];
+CMD npm start
 
-EXPOSE 80:8000
+EXPOSE $PORT
